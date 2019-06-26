@@ -72,7 +72,7 @@ class AnabanFace:
 				if r['similarity'] < most_similar_data['similarity']:
 					most_similar_data = r
 			
-			s = '\n\n【 {0} 】に最も似ている画像は、【 {1} 】です。'.format(self.get_cast_name_by_image(self.target_file_name), most_similar_data['cast_name'])
+			s = '\n\n🍺【 {0} 】に最も似ている画像は、【 {1} 】です。'.format(self.get_cast_name_by_image(self.target_file_name), most_similar_data['cast_name'])
 			print(s)
 
 
