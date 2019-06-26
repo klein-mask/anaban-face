@@ -29,7 +29,7 @@ class AnabanFace:
 
 	# 比較
 	def compare(self):
-		s = '🎁　=== 【 {0} 】 に似ている画像を調べます==================\n'.format(self.get_cast_name_by_image(self.target_file_name))
+		s = '\n🎁　=== 【 {0} 】 に似ている画像を調べます\n'.format(Pycolor.YELLOW + self.get_cast_name_by_image(self.target_file_name) + Pycolor.END)
 		print(s)
 
 		(target_kp, target_des) = self.akaze.detectAndCompute(self.get_image_data(self.target_file_name), None)
@@ -72,7 +72,7 @@ class AnabanFace:
 				if r['similarity'] < most_similar_data['similarity']:
 					most_similar_data = r
 			
-			s = '\n\n🍺【 {0} 】に最も似ている画像は、【 {1} 】です。'.format(self.get_cast_name_by_image(self.target_file_name), most_similar_data['cast_name'])
+			s = '\n\n\n🍺　=== 【 {0} 】に最も似ている画像は、【 {1} 】です。'.format(Pycolor.YELLOW + self.get_cast_name_by_image(self.target_file_name) + Pycolor.END, Pycolor.RED + most_similar_data['cast_name'] + Pycolor.END)
 			print(s)
 
 
@@ -86,6 +86,23 @@ class AnabanFace:
 		}
 
 		return CONFIG[file_name.split('.')[0]]
+
+
+class Pycolor:
+    BLACK = '\033[30m'
+    RED = '\033[31m'
+    GREEN = '\033[32m'
+    YELLOW = '\033[33m'
+    BLUE = '\033[34m'
+    PURPLE = '\033[35m'
+    CYAN = '\033[36m'
+    WHITE = '\033[37m'
+    END = '\033[0m'
+    BOLD = '\038[1m'
+    UNDERLINE = '\033[4m'
+    INVISIBLE = '\033[08m'
+    REVERCE = '\033[07m'
+
 
 if __name__ == "__main__":
 	args = sys.argv
