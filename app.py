@@ -37,7 +37,6 @@ class AnabanFace:
 		(target_kp, target_des) = self.akaze.detectAndCompute(self.get_image_data(self.target_file_name), None)
 
 		#比較画像を全て取得
-		#files = os.listdir(self.IMAGES_DIR)
 		image_path_list = glob.glob(self.IMAGES_DIR + '/*.png')
 
 		results = []
