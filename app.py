@@ -10,7 +10,9 @@ import glob
 
 class AnabanFace:
 
-	IMAGES_DIR = os.path.abspath(os.path.dirname(__file__)) + '/images/'
+	#IMAGES_DIR = os.path.abspath(os.path.dirname(__file__)) + '/images/'
+	IMAGES_DIR = os.path.abspath(os.path.dirname(__file__)) + '/images2/'
+
 	IMAGE_SIZE = (200, 200)
 	
 	def __init__(self, target_file_name):
@@ -82,7 +84,47 @@ class AnabanFace:
 			'kei_b': '田中圭',
 			'ryusei': '横浜流星',
 			'kodai': '浅香航大',
-			'naoto': '竹中直人'
+			'naoto': '竹中直人',
+			'nana': '手塚菜奈',
+			'shota': '手塚翔太',
+			'kuroshima': '黒島沙和',
+			'nikaido': '二階堂忍',
+			'sanae': '榎本早苗',
+			'tamiya': '田宮淳一郎',
+			'tokoshima': '床島比呂志',
+			'kuzumi': '久住譲',
+			'kayo': '児嶋佳世',
+			'toshiaki': '児嶋俊明',
+			'kimiko': '田宮君子',
+			'yoko': '石崎洋子',
+			'kenji': '石崎健二',
+			'humiyo': '石崎文代',
+			'kazuo': '石崎一男',
+			'ukita': '浮田啓輔',
+			'airi': '妹尾あいり',
+			'kakinuma': '柿沼遼',
+			'shinii': 'シンイー',
+			'kuon': 'クオン',
+			'ikubaru': 'イクバル',
+			'nishimura': '西村淳',
+			'ono': '尾野幹葉',
+			'kitagawa': '北川澄香',
+			'sora': '北川そら',
+			'kinoshita': '木下あかね',
+			'masashi': '榎本正志',
+			'soichi': '榎本総一',
+			'hujii': '藤井淳史',
+			'eto': '江藤祐樹',
+			'sano': '佐野豪',
+			'misato': '赤池美里',
+			'goro': '赤池吾朗',
+			'sachiko': '赤池幸子',
+			'kamiya': '神谷将人',
+			'mizuki': '水城洋司',
+			'hosokawa': '細川朝男',
+			'yomogida': '蓬田蓮太郎',
+			'sakuragi': '桜木るり',
+			'x': 'インターホンの人物X(エックス)'
 		}
 
 		return CONFIG[file_name.split('.')[0]]
