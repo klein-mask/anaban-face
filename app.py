@@ -56,24 +56,29 @@ class AnabanFace:
 
 
 				cast_name = self.get_cast_name_by_image(file_name)
-				s = '\n😏　{0}の画像（{1}）の値：{2}'.format(cast_name, file_name, ret)
-				print(s)
+				#s = '\n😏　{0}の画像（{1}）の値：{2}'.format(cast_name, file_name, ret)
+				#print(s)
 
 				data = {
-					'cast_name': cast_name, 
+					'cast_name': cast_name,
+					'file_name': file_name,
 					'similarity': ret
 				}
 				
 				results.append(data)
 
 		if len(results) >= 1:
+
+			results = sorted(results, key=lambda a: a['similarity'])
+
 			most_similar_data = results[0]
 
-			for r in results:
-				if r['similarity'] < most_similar_data['similarity']:
-					most_similar_data = r
+			for i, r in enumerate(results):
+				s = '\n{0}　{1}（{2}）の値：{3}'.format((i + 1), Pycolor.YELLOW + r['cast_name'] + Pycolor.END, r['file_name'], Pycolor.BLUE + str(r['similarity']) + Pycolor.END)
+				print(s)
+
 			
-			s = '\n\n\n🍺　=== 【 {0} 】に最も似ている画像は、【 {1} 】です。'.format(Pycolor.YELLOW + self.get_cast_name_by_image(self.target_file_name) + Pycolor.END, Pycolor.RED + most_similar_data['cast_name'] + Pycolor.END)
+			s = '\n\n\n🍺　=== 【 {0} 】に最も似ているのは、【 {1} 】です。'.format(Pycolor.YELLOW + self.get_cast_name_by_image(self.target_file_name) + Pycolor.END, Pycolor.RED + most_similar_data['cast_name'] + Pycolor.END)
 			print(s)
 
 
